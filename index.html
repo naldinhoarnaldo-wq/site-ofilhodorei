@@ -204,9 +204,9 @@
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 4px 15px rgba(224, 170, 62, 0.2);
-            margin-top: auto;
             width: 100%;
             text-align: center;
+            margin-top: auto; /* Empurra o botão firmemente para a base do card */
         }
 
         .btn:hover {
@@ -252,6 +252,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            align-items: stretch; /* Garante que todos os cards da linha tenham a mesma altura */
         }
         
         @media (max-width: 1024px) {
@@ -375,13 +376,6 @@
             padding: 14px;
             border-radius: 6px;
             text-align: center;
-            margin-bottom: 20px;
-            margin-top: auto;
-        }
-
-        .cupom-placeholder {
-            visibility: hidden;
-            height: 84px; /* Altura exata da caixa de cupom para alinhar perfeitamente o botão do primeiro card */
             margin-bottom: 20px;
             margin-top: auto;
         }
@@ -542,9 +536,6 @@
                 <h3>Onicanal - Profissão Ecommerce</h3>
                 <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
                 
-                <!-- Espaçador invisível para manter o botão alinhado com os outros cards -->
-                <div class="cupom-placeholder"></div>
-
                 <a href="https://go.hotmart.com/W51253421F?dp=1" class="btn" target="_blank">CONHECER O CURSO</a>
             </div>
 
