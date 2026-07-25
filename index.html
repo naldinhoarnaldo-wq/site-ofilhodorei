@@ -44,9 +44,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         /* --- MENU SUPERIOR FIXO / HEADER --- */
@@ -63,9 +63,9 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -118,16 +118,16 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.5fr;
-            gap: 60px;
+            grid-template-columns: 320px 1fr;
+            gap: 80px;
             align-items: center;
             justify-items: start;
         }
 
         .hero-image-box {
             width: 100%;
-            max-width: 380px;
-            height: 450px;
+            max-width: 320px;
+            height: 420px;
             border-radius: 8px;
             border: 2px solid var(--gold-main);
             overflow: hidden;
@@ -399,7 +399,7 @@
 </head>
 <body>
 
-    <!-- MENU SUPERIOR CLICÁVEL -->
+    <!-- MENU SUPERIOR FIXO / HEADER -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">O FILHO DO REI <span class="crown">♛</span></a>
@@ -416,11 +416,11 @@
     <header class="hero">
         <div class="container">
             <div class="hero-grid">
-                <!-- Coluna da Foto (Puxada mais para o canto esquerdo) -->
+                <!-- Coluna da Foto (Fixada mais para a esquerda e dimensionada) -->
                 <div class="hero-image-box">
                     <img src="perfil.jpg" alt="O Filho do Rei">
                 </div>
-                <!-- Coluna da Identidade e Apresentação em Destaque -->
+                <!-- Coluna da Identidade e Apresentação -->
                 <div class="hero-content">
                     <div class="expert-tag">O Filho do Rei <span class="crown">♛</span></div>
                     <div class="expert-sub">Gestor de E-commerce</div>
