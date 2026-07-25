@@ -204,7 +204,9 @@
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 4px 15px rgba(224, 170, 62, 0.2);
-            margin-top: auto; /* Alinha o botão sempre na parte inferior do card */
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
         }
 
         .btn:hover {
@@ -313,7 +315,7 @@
 
         .card-img-box {
             width: 100%;
-            height: 200px;
+            height: 180px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             overflow: hidden;
@@ -322,10 +324,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .grid-3 .card-img-box {
-            height: 180px; /* Altura otimizada para os parceiros no desktop */
         }
 
         .card-img-box img {
@@ -346,28 +344,6 @@
             margin-bottom: 20px;
             font-weight: 300;
             font-size: 0.95rem;
-        }
-
-        .card ul {
-            list-style: none;
-            margin-top: auto;
-            margin-bottom: 28px;
-        }
-
-        .card ul li {
-            margin-bottom: 10px;
-            padding-left: 24px;
-            position: relative;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-        }
-
-        .card ul li::before {
-            content: '♦'; 
-            position: absolute; left: 0;
-            color: var(--gold-main);
-            font-size: 1.1rem;
-            line-height: 1;
         }
 
         /* --- ABOUT BOX --- */
@@ -399,6 +375,13 @@
             padding: 14px;
             border-radius: 6px;
             text-align: center;
+            margin-bottom: 20px;
+            margin-top: auto;
+        }
+
+        .cupom-placeholder {
+            visibility: hidden;
+            height: 84px; /* Altura exata da caixa de cupom para alinhar perfeitamente o botão do primeiro card */
             margin-bottom: 20px;
             margin-top: auto;
         }
@@ -519,13 +502,13 @@
                 </div>
                 <h3>Robô de Automação para Marketplaces</h3>
                 <p>Criado para eliminar gargalos e o trabalho mecânico do dia a dia. O robô assume as tarefas repetitivas para que a sua expedição não dependa de dezenas de braços operacionais.</p>
-                <ul>
-                    <li>Garante velocidade nas ações repetitivas</li>
-                    <li>Libera seu tempo para focar na estratégia e nas compras</li>
-                    <li>Permite rodar a operação com o mínimo de funcionários</li>
+                <ul style="list-style: none; margin-top: auto; margin-bottom: 28px;">
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Garante velocidade nas ações repetitivas</li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Libera seu tempo para focar na estratégia e nas compras</li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Permite rodar a operação com o mínimo de funcionários</li>
                 </ul>
-                <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="width: 100%; text-align: center; margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
+                <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
             </div>
 
             <!-- Conciliação -->
@@ -535,13 +518,13 @@
                 </div>
                 <h3>Sistema de Conciliação para Marketplaces</h3>
                 <p>O lucro de verdade não está no painel de vendas, está no seu bolso. Este sistema cruza cada centavo de taxas, comissões e repasses para auditar a sua operação nas plataformas.</p>
-                <ul>
-                    <li>Encontra cobranças indevidas e taxas ocultas</li>
-                    <li>Garante que a sua margem de lucro projetada seja real</li>
-                    <li>Traz a visão analítica e fria que todo caixa precisa</li>
+                <ul style="list-style: none; margin-top: auto; margin-bottom: 28px;">
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Encontra cobranças indevidas e taxas ocultas</li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Garante que a sua margem de lucro projetada seja real</li>
+                    <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Traz a visão analítica e fria que todo caixa precisa</li>
                 </ul>
-                <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="width: 100%; text-align: center; margin-bottom: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
+                <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
             </div>
         </div>
     </section>
@@ -559,7 +542,10 @@
                 <h3>Onicanal - Profissão Ecommerce</h3>
                 <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
                 
-                <a href="https://go.hotmart.com/W51253421F?dp=1" class="btn" style="width: 100%; text-align: center;" target="_blank">CONHECER O CURSO</a>
+                <!-- Espaçador invisível para manter o botão alinhado com os outros cards -->
+                <div class="cupom-placeholder"></div>
+
+                <a href="https://go.hotmart.com/W51253421F?dp=1" class="btn" target="_blank">CONHECER O CURSO</a>
             </div>
 
             <!-- Parceiro 2: Letzee -->
@@ -575,7 +561,7 @@
                     <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
                 </div>
 
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20benef%C3%ADcio%20da%20Letzee." class="btn" style="width: 100%; text-align: center;" target="_blank">GARANTIR BENEFÍCIO</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20benef%C3%ADcio%20da%20Letzee." class="btn" target="_blank">GARANTIR BENEFÍCIO</a>
             </div>
 
             <!-- Parceiro 3: Linsgeek ERP -->
@@ -591,7 +577,7 @@
                     <div class="cupom-code">30 Dias Grátis</div>
                 </div>
 
-                <a href="https://app.linsgeek.com/zh-CN/register?code=X68WYZ2R" class="btn" style="width: 100%; text-align: center;" target="_blank">CADASTRAR 30 DIAS GRÁTIS</a>
+                <a href="https://app.linsgeek.com/zh-CN/register?code=X68WYZ2R" class="btn" target="_blank">CADASTRAR 30 DIAS GRÁTIS</a>
             </div>
 
         </div>
