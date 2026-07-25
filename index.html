@@ -55,7 +55,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(5, 5, 5, 0.9);
+            background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
@@ -107,6 +107,16 @@
         }
 
         .nav-links a:hover {
+            color: var(--gold-main);
+        }
+
+        /* Botão do Menu Mobile (Hambúrguer) - Invisível no Desktop */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.8rem;
             color: var(--gold-main);
         }
 
@@ -236,13 +246,58 @@
             gap: 32px;
         }
         
+        /* --- RESPONSIVIDADE MOBILE --- */
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-            .hero-image-box { max-width: 300px; height: 380px; margin: 0 auto; }
-            .hero-content { text-align: center; }
-            .expert-tag { justify-content: center; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .container, .nav-container {
+                padding: 0 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(5, 5, 5, 0.98);
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 30px 0;
+                border-bottom: 1px solid var(--border-color);
+                display: none; /* Escondido por padrão até ser aberto */
+            }
+
+            .nav-links.active {
+                display: flex; /* Mostra quando ativado via JS */
+            }
+
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                justify-items: center; 
+                gap: 40px;
+            }
+
+            .hero-image-box { 
+                max-width: 280px; 
+                height: 360px; 
+                margin: 0 auto; 
+            }
+
+            .hero-content { 
+                text-align: center; 
+            }
+
+            .expert-tag { 
+                justify-content: center; 
+            }
+
+            .grid-2 { 
+                grid-template-columns: 1fr; 
+            }
         }
 
         /* --- CARDS --- */
@@ -403,12 +458,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">O FILHO DO REI <span class="crown">♛</span></a>
-            <ul class="nav-links">
-                <li><a href="#">Início</a></li>
-                <li><a href="#historia">História</a></li>
-                <li><a href="#solucoes">Soluções</a></li>
-                <li><a href="#consultoria">Consultoria</a></li>
-                <li><a href="#planos">Planos</a></li>
+            
+            <!-- Botão Hambúrguer para Celular -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="fecharMenu()">Início</a></li>
+                <li><a href="#historia" onclick="fecharMenu()">História</a></li>
+                <li><a href="#solucoes" onclick="fecharMenu()">Soluções</a></li>
+                <li><a href="#consultoria" onclick="fecharMenu()">Consultoria</a></li>
+                <li><a href="#planos" onclick="fecharMenu()">Planos</a></li>
             </ul>
         </div>
     </nav>
@@ -500,7 +561,7 @@
                     <li>Acesso ao Sistema de Conciliação</li>
                     <li>Suporte via WhatsApp</li>
                 </ul>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Quero%20assinar%20o%20Combo%20no%20Plano%20Mensal%20via%20PIX." class="btn btn-outline" style="width: 100%;" target="_blank">ASSINAR MENSAL</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Combo%20no%20Plano%20Mensal%20via%20PIX." class="btn btn-outline" style="width: 100%;" target="_blank">ASSINAR MENSAL</a>
             </div>
 
             <!-- Anual -->
@@ -527,6 +588,20 @@
             <p style="font-size: 0.8rem; margin-top: 12px; opacity: 0.5; font-family: 'Montserrat', sans-serif;">Esta página não tem vínculo direto com a marca Shopee.</p>
         </div>
     </footer>
+
+    <!-- SCRIPT DO MENU MOBILE -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        function fecharMenu() {
+            navLinks.classList.remove('active');
+        }
+    </script>
 
 </body>
 </html>
