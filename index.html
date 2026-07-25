@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Filho do Rei - Automação e Gestão para Shopee</title>
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero Section */
+        .hero { padding: 100px 20px; text-align: center; background: linear-gradient(to right bottom, var(--bg-dark), #1e293b); border-bottom: 1px solid #334155; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px auto; }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 15px 35px; font-size: 1.1rem; font-weight: bold; color: #fff; background: linear-gradient(to right, #10b981, #059669); border-radius: 8px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: rgba(0, 210, 255, 0.1); box-shadow: none; }
+        
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        
+        /* Cards */
+        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid #334155; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
+        .card ul { list-style: none; margin-top: 20px; }
+        .card ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        
+        /* Pricing */
+        .pricing-card { text-align: center; position: relative; }
+        .pricing-card.highlight { border: 2px solid var(--accent); transform: scale(1.05); }
+        .pricing-card.highlight::before { content: 'MAIS VANTAJOSO'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+        
+        /* About */
+        .about-box { background: linear-gradient(45deg, #1e293b, #0f172a); border-left: 4px solid var(--primary); padding: 40px; border-radius: 0 12px 12px 0; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 30px; border-top: 1px solid #334155; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <h1>Pare de perder tempo com trabalho braçal e dinheiro com taxas ocultas.</h1>
+            <p>Ferramentas de automação e conciliação financeira validadas no campo de batalha para você blindar o seu caixa e escalar sua operação com uma equipe enxuta.</p>
+            <a href="#planos" class="btn">QUERO PROTEGER MEU LUCRO E MEU TEMPO</a>
+        </div>
+    </header>
+
+    <!-- SOBRE A TRAJETÓRIA -->
+    <section class="section container">
+        <div class="about-box">
+            <h2 style="font-size: 2rem; margin-bottom: 20px;">Desenvolvido no Campo de Batalha</h2>
+            <p style="margin-bottom: 15px; font-size: 1.1rem;">O crescimento não acontece por acaso, acontece por estratégia. Minha jornada no mercado começou em 2021, quando abri meu primeiro CNPJ com exatos R$ 50.</p>
+            <p style="margin-bottom: 15px; font-size: 1.1rem;">Foi aplicando uma visão fria, matemática e desenvolvendo essas exatas ferramentas que escalei a operação de minhas três MEs simultâneas para um faturamento anual de R$ 2,2 milhões.</p>
+            <p style="font-size: 1.1rem;">Tudo isso rodando uma logística pesada contando por muito tempo apenas com um braço de apoio na expedição: minha esposa. O que eu te entrego aqui é a mesma engenharia que sustenta minhas empresas.</p>
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES -->
+    <section class="section container">
+        <h2 class="section-title">Soluções feitas por um vendedor, para vendedores</h2>
+        <div class="grid-2">
+            <!-- Robô -->
+            <div class="card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🤖</div>
+                <h3>Robô de Automação Shopee</h3>
+                <p>Criado para eliminar gargalos e o trabalho mecânico do dia a dia. O robô assume as tarefas repetitivas para que a sua expedição não dependa de dezenas de braços operacionais.</p>
+                <ul>
+                    <li>Garante velocidade nas ações repetitivas</li>
+                    <li>Libera seu tempo para focar na estratégia e nas compras</li>
+                    <li>Permite rodar a operação com o mínimo de funcionários</li>
+                </ul>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o%20Shopee." class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
+            </div>
+
+            <!-- Conciliação -->
+            <div class="card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
+                <h3>Sistema de Conciliação</h3>
+                <p>O lucro de verdade não está no painel de vendas, está no seu bolso. Este sistema cruza cada centavo de taxas, comissões e repasses da Shopee para auditar a plataforma.</p>
+                <ul>
+                    <li>Encontra cobranças indevidas e taxas ocultas</li>
+                    <li>Garante que a sua margem de lucro projetada seja real</li>
+                    <li>Traz a visão analítica e fria que todo caixa precisa</li>
+                </ul>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;" target="_blank">FALAR SOBRE CONCILIAÇÃO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENTORIA -->
+    <section class="section container" style="background-color: var(--bg-card); border-radius: 12px; padding: 60px; text-align: center; border: 1px solid #334155; margin-bottom: 40px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary);">Mentoria & Consultoria Avançada</h2>
+        <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px auto;">A resposta para o sucesso não é sorte, é matemática. Minha consultoria é voltada para lojistas que precisam profissionalizar a operação. Vamos dissecar seus custos, otimizar logística, traçar simulações de importação formal e aplicar uma gestão fria para escalar seu lucro. <strong>(As ferramentas estão inclusas no pacote).</strong></p>
+        <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Mentoria%20e%20Consultoria%20Avan%C3%A7ada." class="btn" target="_blank">APLICAR PARA A MENTORIA</a>
+    </section>
+
+    <!-- PREÇOS -->
+    <section id="planos" class="section container">
+        <h2 class="section-title">Escolha o seu plano para o Combo (Robô + Conciliação)</h2>
+        <div class="grid-2">
+            <!-- Mensal -->
+            <div class="card pricing-card">
+                <h3>Plano Mensal</h3>
+                <p>Para quem quer testar as ferramentas na prática.</p>
+                <div class="price">R$ 147<span>/mês</span></div>
+                <ul style="text-align: left; margin-bottom: 30px;">
+                    <li>Acesso ao Robô Shopee</li>
+                    <li>Acesso ao Sistema de Conciliação</li>
+                    <li>Suporte via WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Quero%20assinar%20o%20Combo%20no%20Plano%20Mensal%20via%20PIX." class="btn btn-outline" style="width: 100%;" target="_blank">ASSINAR MENSAL</a>
+            </div>
+
+            <!-- Anual -->
+            <div class="card pricing-card highlight">
+                <h3>Plano Anual</h3>
+                <p>A escolha mais inteligente. Economize mais de R$ 600.</p>
+                <div class="price" style="color: var(--accent);">R$ 97<span>/mês</span></div>
+                <p style="font-size: 0.9rem; margin-top: -10px; margin-bottom: 20px; color: var(--text-muted);">(Pagamento único de R$ 1.164,00)</p>
+                <ul style="text-align: left; margin-bottom: 30px;">
+                    <li>Acesso completo por 12 meses</li>
+                    <li>Prioridade no suporte</li>
+                    <li>Garantia Incondicional de 7 Dias</li>
+                </ul>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Quero%20assinar%20o%20Combo%20Anual%20via%20PIX%20com%20desconto." class="btn" style="width: 100%;" target="_blank">ASSINAR ANUAL AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 O Filho do Rei. Todos os direitos reservados.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Esta página não tem vínculo direto com a marca Shopee.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
