@@ -204,7 +204,7 @@
             transition: all 0.3s ease;
             border: none;
             box-shadow: 0 4px 15px rgba(224, 170, 62, 0.2);
-            margin-top: auto;
+            margin-top: auto; /* Alinha o botão sempre na parte inferior do card */
         }
 
         .btn:hover {
@@ -283,7 +283,7 @@
         /* --- CARDS & SOLUÇÕES --- */
         .card {
             background-color: var(--bg-surface);
-            padding: 48px 40px;
+            padding: 32px 28px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
@@ -313,15 +313,19 @@
 
         .card-img-box {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            height: 200px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .grid-3 .card-img-box {
+            height: 180px; /* Altura otimizada para os parceiros no desktop */
         }
 
         .card-img-box img {
@@ -331,37 +335,38 @@
         }
 
         .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 16px;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
             color: var(--text-primary);
             letter-spacing: 1px;
         }
 
         .card p {
             color: var(--text-secondary);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 300;
+            font-size: 0.95rem;
         }
 
         .card ul {
             list-style: none;
             margin-top: auto;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .card ul li {
-            margin-bottom: 12px;
-            padding-left: 28px;
+            margin-bottom: 10px;
+            padding-left: 24px;
             position: relative;
             color: var(--text-primary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .card ul li::before {
             content: '♦'; 
             position: absolute; left: 0;
             color: var(--gold-main);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1;
         }
 
@@ -391,7 +396,7 @@
         .cupom-box {
             background: rgba(224, 170, 62, 0.05);
             border: 1px dashed var(--gold-main);
-            padding: 16px;
+            padding: 14px;
             border-radius: 6px;
             text-align: center;
             margin-bottom: 20px;
@@ -401,12 +406,12 @@
         .cupom-code {
             font-family: 'Cinzel', serif;
             color: var(--gold-light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 1px;
             margin-top: 5px;
             background: #000;
-            padding: 8px;
+            padding: 6px;
             display: inline-block;
             border-radius: 4px;
             border: 1px solid var(--border-color);
