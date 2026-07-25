@@ -3,60 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Filho do Rei - Automação e Gestão para Shopee</title>
+    <title>O Filho do Rei | Automação e Gestão para Shopee</title>
+    <!-- Fontes Premium: Cinzel (Títulos/Logo) e Montserrat (Textos) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #10b981;
+            /* Paleta Premium baseada na Logo */
+            --bg-base: #050505;
+            --bg-surface: #111111;
+            --bg-surface-hover: #1a1a1a;
+            
+            /* Tons de Ouro (Coroa) */
+            --gold-light: #F9F295;
+            --gold-main: #E0AA3E;
+            --gold-dark: #B8860B;
+            --gold-gradient: linear-gradient(135deg, #F9F295 0%, #E0AA3E 50%, #B8860B 100%);
+            
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #2a2a2a;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo com leve textura escura para remeter ao fundo da logo */
+            background-image: radial-gradient(circle at center, #111 0%, #000 100%);
+        }
+
+        h1, h2, h3, .price {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 120px 20px 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #000000;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(224, 170, 62, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(224, 170, 62, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold-main);
+            color: var(--gold-main);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(224, 170, 62, 0.1);
+            color: var(--gold-light);
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--gold-main);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- GRID --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
         
-        /* Hero Section */
-        .hero { padding: 100px 20px; text-align: center; background: linear-gradient(to right bottom, var(--bg-dark), #1e293b); border-bottom: 1px solid #334155; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px auto; }
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background-color: var(--bg-surface);
+            padding: 48px 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Linha superior dourada nos cards */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #333;
+            transform: translateY(-5px);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--gold-main);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: auto;
+            margin-bottom: 32px;
+        }
+
+        .card ul li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: '♦'; /* Detalhe mais clássico que o check */
+            position: absolute;
+            left: 0;
+            color: var(--gold-main);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* --- ABOUT BOX --- */
+        .about-box {
+            background: var(--bg-surface);
+            border-left: 2px solid var(--gold-main);
+            padding: 48px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .about-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid var(--border-color);
+            border-left: none;
+            pointer-events: none;
+        }
+
+        .about-box h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--gold-main);
+        }
+
+        .about-box p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* --- PRICING CARDS --- */
+        .pricing-card {
+            text-align: center;
+            align-items: center;
+        }
+
+        .pricing-card.highlight {
+            border: 1px solid var(--gold-dark);
+            background: #0a0a0a;
+            transform: scale(1.03);
+        }
+
+        .pricing-card.highlight::before {
+            opacity: 1;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold-gradient);
+            color: #000;
+            padding: 4px 16px;
+            border-radius: 2px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            margin: 24px 0 8px;
+            color: var(--gold-main);
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         
-        /* Buttons */
-        .btn { display: inline-block; padding: 15px 35px; font-size: 1.1rem; font-weight: bold; color: #fff; background: linear-gradient(to right, #10b981, #059669); border-radius: 8px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: none; cursor: pointer; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-outline:hover { background: rgba(0, 210, 255, 0.1); box-shadow: none; }
-        
-        /* Sections */
-        .section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
-        
-        /* Grid */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
-        
-        /* Cards */
-        .card { background-color: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid #334155; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--primary); }
-        .card ul { list-style: none; margin-top: 20px; }
-        .card ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
-        .card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        
-        /* Pricing */
-        .pricing-card { text-align: center; position: relative; }
-        .pricing-card.highlight { border: 2px solid var(--accent); transform: scale(1.05); }
-        .pricing-card.highlight::before { content: 'MAIS VANTAJOSO'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; }
-        .price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
-        
-        /* About */
-        .about-box { background: linear-gradient(45deg, #1e293b, #0f172a); border-left: 4px solid var(--primary); padding: 40px; border-radius: 0 12px 12px 0; }
-        
-        /* Footer */
-        footer { text-align: center; padding: 30px; border-top: 1px solid #334155; color: var(--text-muted); }
+        .price span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0;
+            -webkit-text-fill-color: var(--text-secondary);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -64,19 +323,19 @@
     <!-- HERO -->
     <header class="hero">
         <div class="container">
-            <h1>Pare de perder tempo com trabalho braçal e dinheiro com taxas ocultas.</h1>
+            <h1>Pare de perder tempo com trabalho braçal e <span>dinheiro com taxas ocultas.</span></h1>
             <p>Ferramentas de automação e conciliação financeira validadas no campo de batalha para você blindar o seu caixa e escalar sua operação com uma equipe enxuta.</p>
-            <a href="#planos" class="btn">QUERO PROTEGER MEU LUCRO E MEU TEMPO</a>
+            <a href="#planos" class="btn">PROTEGER MEU LUCRO E MEU TEMPO</a>
         </div>
     </header>
 
     <!-- SOBRE A TRAJETÓRIA -->
     <section class="section container">
         <div class="about-box">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">Desenvolvido no Campo de Batalha</h2>
-            <p style="margin-bottom: 15px; font-size: 1.1rem;">O crescimento não acontece por acaso, acontece por estratégia. Minha jornada no mercado começou em 2021, quando abri meu primeiro CNPJ com exatos R$ 50.</p>
-            <p style="margin-bottom: 15px; font-size: 1.1rem;">Foi aplicando uma visão fria, matemática e desenvolvendo essas exatas ferramentas que escalei a operação de minhas três MEs simultâneas para um faturamento anual de R$ 2,2 milhões.</p>
-            <p style="font-size: 1.1rem;">Tudo isso rodando uma logística pesada contando por muito tempo apenas com um braço de apoio na expedição: minha esposa. O que eu te entrego aqui é a mesma engenharia que sustenta minhas empresas.</p>
+            <h2>Desenvolvido no Campo de Batalha</h2>
+            <p>O crescimento não acontece por acaso, acontece por estratégia. Minha jornada no mercado começou em 2021, quando abri meu primeiro CNPJ com exatos R$ 50.</p>
+            <p>Foi aplicando uma visão fria, matemática e desenvolvendo essas exatas ferramentas que escalei a operação de minhas três MEs simultâneas para um faturamento anual de R$ 2,2 milhões.</p>
+            <p style="margin-bottom: 0;">Tudo isso rodando uma logística pesada contando por muito tempo apenas com um braço de apoio na expedição: minha esposa. O que eu te entrego aqui é a mesma engenharia que sustenta minhas empresas.</p>
         </div>
     </section>
 
@@ -86,7 +345,7 @@
         <div class="grid-2">
             <!-- Robô -->
             <div class="card">
-                <div style="font-size: 3rem; margin-bottom: 10px;">🤖</div>
+                <div class="card-icon">♛</div>
                 <h3>Robô de Automação Shopee</h3>
                 <p>Criado para eliminar gargalos e o trabalho mecânico do dia a dia. O robô assume as tarefas repetitivas para que a sua expedição não dependa de dezenas de braços operacionais.</p>
                 <ul>
@@ -94,12 +353,12 @@
                     <li>Libera seu tempo para focar na estratégia e nas compras</li>
                     <li>Permite rodar a operação com o mínimo de funcionários</li>
                 </ul>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o%20Shopee." class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o%20Shopee." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
             </div>
 
             <!-- Conciliação -->
             <div class="card">
-                <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
+                <div class="card-icon">⚖</div>
                 <h3>Sistema de Conciliação</h3>
                 <p>O lucro de verdade não está no painel de vendas, está no seu bolso. Este sistema cruza cada centavo de taxas, comissões e repasses da Shopee para auditar a plataforma.</p>
                 <ul>
@@ -107,28 +366,30 @@
                     <li>Garante que a sua margem de lucro projetada seja real</li>
                     <li>Traz a visão analítica e fria que todo caixa precisa</li>
                 </ul>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;" target="_blank">FALAR SOBRE CONCILIAÇÃO</a>
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE CONCILIAÇÃO</a>
             </div>
         </div>
     </section>
 
     <!-- MENTORIA -->
-    <section class="section container" style="background-color: var(--bg-card); border-radius: 12px; padding: 60px; text-align: center; border: 1px solid #334155; margin-bottom: 40px;">
-        <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--primary);">Mentoria & Consultoria Avançada</h2>
-        <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 30px auto;">A resposta para o sucesso não é sorte, é matemática. Minha consultoria é voltada para lojistas que precisam profissionalizar a operação. Vamos dissecar seus custos, otimizar logística, traçar simulações de importação formal e aplicar uma gestão fria para escalar seu lucro. <strong>(As ferramentas estão inclusas no pacote).</strong></p>
-        <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Mentoria%20e%20Consultoria%20Avan%C3%A7ada." class="btn" target="_blank">APLICAR PARA A MENTORIA</a>
+    <section class="section container">
+        <div class="card" style="text-align: center; padding: 64px 40px; border-color: var(--gold-dark);">
+            <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Mentoria & Consultoria Avançada</h2>
+            <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px auto; font-weight: 300;">A resposta para o sucesso não é sorte, é matemática. Minha consultoria é voltada para lojistas que precisam profissionalizar a operação. Vamos dissecar seus custos, otimizar logística, traçar simulações de importação formal e aplicar uma gestão para escalar seu lucro.<br><br><strong style="color: var(--gold-main); font-weight: 600;">As ferramentas estão inclusas no pacote.</strong></p>
+            <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Mentoria%20e%20Consultoria%20Avan%C3%A7ada." class="btn" style="width: auto; margin: 0 auto;" target="_blank">APLICAR PARA A MENTORIA</a>
+        </div>
     </section>
 
     <!-- PREÇOS -->
-    <section id="planos" class="section container">
-        <h2 class="section-title">Escolha o seu plano para o Combo (Robô + Conciliação)</h2>
+    <section id="planos" class="section container" style="padding-top: 40px;">
+        <h2 class="section-title">Escolha o seu plano para o Combo</h2>
         <div class="grid-2">
             <!-- Mensal -->
             <div class="card pricing-card">
-                <h3>Plano Mensal</h3>
+                <h3 style="color: var(--text-primary);">Plano Mensal</h3>
                 <p>Para quem quer testar as ferramentas na prática.</p>
                 <div class="price">R$ 147<span>/mês</span></div>
-                <ul style="text-align: left; margin-bottom: 30px;">
+                <ul style="text-align: left; width: 100%; margin-top: 16px;">
                     <li>Acesso ao Robô Shopee</li>
                     <li>Acesso ao Sistema de Conciliação</li>
                     <li>Suporte via WhatsApp</li>
@@ -138,13 +399,14 @@
 
             <!-- Anual -->
             <div class="card pricing-card highlight">
-                <h3>Plano Anual</h3>
+                <div class="pricing-badge">Mais Vantajoso</div>
+                <h3 style="color: var(--gold-main);">Plano Anual</h3>
                 <p>A escolha mais inteligente. Economize mais de R$ 600.</p>
-                <div class="price" style="color: var(--accent);">R$ 97<span>/mês</span></div>
-                <p style="font-size: 0.9rem; margin-top: -10px; margin-bottom: 20px; color: var(--text-muted);">(Pagamento único de R$ 1.164,00)</p>
-                <ul style="text-align: left; margin-bottom: 30px;">
+                <div class="price">R$ 97<span>/mês</span></div>
+                <p style="font-size: 0.9rem; margin-top: -4px; margin-bottom: 24px; color: var(--text-secondary);">(Pagamento único de R$ 1.164,00)</p>
+                <ul style="text-align: left; width: 100%;">
                     <li>Acesso completo por 12 meses</li>
-                    <li>Prioridade no suporte</li>
+                    <li>Prioridade VIP no suporte</li>
                     <li>Garantia Incondicional de 7 Dias</li>
                 </ul>
                 <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Quero%20assinar%20o%20Combo%20Anual%20via%20PIX%20com%20desconto." class="btn" style="width: 100%;" target="_blank">ASSINAR ANUAL AGORA</a>
@@ -156,7 +418,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 O Filho do Rei. Todos os direitos reservados.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">Esta página não tem vínculo direto com a marca Shopee.</p>
+            <p style="font-size: 0.8rem; margin-top: 12px; opacity: 0.5; font-family: 'Montserrat', sans-serif;">Esta página não tem vínculo direto com a marca Shopee.</p>
         </div>
     </footer>
 
