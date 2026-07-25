@@ -76,6 +76,16 @@
             font-size: 1.1rem;
             text-decoration: none;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo span.crown {
+            font-size: 1.2rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
@@ -131,9 +141,18 @@
         .expert-tag {
             font-family: 'Cinzel', serif;
             color: var(--gold-light);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: 1px;
             margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .expert-tag span.crown {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .expert-sub {
@@ -141,11 +160,11 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero-content h1 {
-            font-size: 2.6rem;
+            font-size: 2.3rem;
             line-height: 1.2;
             margin-bottom: 20px;
             color: var(--text-primary);
@@ -227,9 +246,10 @@
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-image-box { max-width: 300px; height: 300px; margin: 0 auto 20px auto; }
-            .hero-content h1 { font-size: 2rem; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .expert-tag { justify-content: center; }
             .grid-2 { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Oculta menu no mobile se preferir */
+            .nav-links { display: none; }
         }
 
         /* --- CARDS --- */
@@ -389,7 +409,7 @@
     <!-- MENU SUPERIOR CLICÁVEL -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">O FILHO DO REI</a>
+            <a href="#" class="nav-logo"><span class="crown">♛</span> O FILHO DO REI</a>
             <ul class="nav-links">
                 <li><a href="#">Início</a></li>
                 <li><a href="#solucoes">Soluções</a></li>
@@ -399,20 +419,27 @@
         </div>
     </nav>
 
-    <!-- HERO (PRIMEIRA DOBRA COM FOTO E NOME CORRETOS) -->
+    <!-- HERO (PRIMEIRA DOBRA COM COROA NO NOME) -->
     <header class="hero">
         <div class="container">
             <div class="hero-grid">
                 <!-- Coluna da Foto -->
                 <div class="hero-image-box">
-                    <img src="perfil.jpg" alt="Arnaldo Carriel">
+                    <img src="perfil.jpg" alt="O Filho do Rei">
                 </div>
-                <!-- Coluna do Texto e Nome -->
+                <!-- Coluna do Ganho, Identidade e Fala Sobre Mim -->
                 <div class="hero-content">
-                    <div class="expert-tag">Arnaldo Carriel</div>
-                    <div class="expert-sub">Especialista em Gestão e Automação</div>
                     <h1>Pare de perder tempo com trabalho braçal e <span>dinheiro com taxas ocultas.</span></h1>
                     <p>Ferramentas de automação e conciliação financeira validadas no campo de batalha para você blindar o seu caixa e escalar sua operação com uma equipe enxuta.</p>
+                    
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 20px;">
+                        <div class="expert-tag"><span class="crown">♛</span> O Filho do Rei</div>
+                        <div class="expert-sub">Gestor de E-commerce</div>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 25px; font-style: italic;">
+                            "Operador nato de e-commerce, com uma visão analítica e fria focada em eliminar gargalos operacionais e proteger o lucro real de quem vende no digital."
+                        </p>
+                    </div>
+
                     <a href="#planos" class="btn">PROTEGER MEU LUCRO E MEU TEMPO</a>
                 </div>
             </div>
