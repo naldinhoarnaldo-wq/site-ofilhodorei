@@ -244,7 +244,17 @@
             grid-template-columns: 1fr 1fr;
             gap: 32px;
         }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
         
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 900px) {
             .container, .nav-container { padding: 0 20px; }
             .menu-toggle { display: block; }
@@ -374,6 +384,32 @@
             margin-bottom: 16px;
             font-size: 1.1rem;
             font-weight: 300;
+        }
+
+        /* --- CUPOM / PARCEIROS STYLES --- */
+        .cupom-box {
+            background: rgba(224, 170, 62, 0.05);
+            border: 1px dashed var(--gold-main);
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: auto;
+        }
+
+        .cupom-code {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            background: #000;
+            padding: 8px;
+            display: inline-block;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            width: 100%;
         }
 
         /* --- YOUTUBE SECTION --- */
@@ -508,16 +544,58 @@
         <div class="card" style="text-align: center; padding: 64px 40px; border-color: var(--gold-dark);">
             <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Consultoria Avançada</h2>
             <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px auto; font-weight: 300;">A resposta para o sucesso não é sorte, é matemática. Minha consultoria é voltada para lojistas que precisam profissionalizar a operação. Vamos dissecar seus custos, otimizar logística, traçar simulações de importação formal e aplicar uma gestão para escalar seu lucro.<br><br><strong style="color: var(--gold-main); font-weight: 600;">As ferramentas estão inclusas no pacote.</strong></p>
-            <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Consultoria%20Avan%C3%A7ada." class="btn" style="width: auto; margin: 0 auto;" target="_blank">APLICAR PARA A CONSULTORIA</a>
+            <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Consultoria%20Avan%C3%A7ada." class="btn" style="width: auto; margin: 0 auto;" target="_blank">APLICAR PARA CONSULTORIA</a>
         </div>
     </section>
 
-    <!-- PARCERIAS -->
+    <!-- PARCERIAS, LINKS E CUPONS -->
     <section id="parcerias" class="section container">
-        <div class="card" style="text-align: center; padding: 64px 40px; border-color: var(--border-color);">
-            <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Parcerias Estratégicas</h2>
-            <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px auto; font-weight: 300;">Trabalhamos ao lado de marcas e soluções consolidadas para fortalecer o ecossistema de e-commerce. Se você deseja conectar sua empresa ou plataforma aos nossos lojistas, vamos conversar sobre parcerias de alto impacto.</p>
-            <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20sobre%20Parcerias." class="btn btn-outline" style="width: auto; margin: 0 auto;" target="_blank">QUERO SER PARCEIRO</a>
+        <h2 class="section-title">Parceiros, Links e Cupons</h2>
+        <div class="grid-3">
+            
+            <!-- Parceiro 1: Onicanal -->
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="onicanal.jpg" alt="Onicanal - Profissão Ecommerce">
+                </div>
+                <h3>Onicanal - Profissão Ecommerce</h3>
+                <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
+                
+                <a href="https://go.hotmart.com/W51253421F?dp=1" class="btn" style="width: 100%; text-align: center; margin-top: auto;" target="_blank">CONHECER O CURSO</a>
+            </div>
+
+            <!-- Parceiro 2: Letzee -->
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="letzee.png" alt="Letzee">
+                </div>
+                <h3>Letzee</h3>
+                <p>Otimize sua operação com benefícios exclusivos. Teste grátis por 15 dias e garanta até 30% de desconto por 1 ano.</p>
+                
+                <div class="cupom-box">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                    <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
+                </div>
+
+                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20benef%C3%ADcio%20da%20Letzee." class="btn" style="width: 100%; text-align: center;" target="_blank">GARANTIR BENEFÍCIO</a>
+            </div>
+
+            <!-- Parceiro 3: Linsgeek ERP -->
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="linsgeek.png" alt="Linsgeek ERP">
+                </div>
+                <h3>Linsgeek ERP</h3>
+                <p>Gestão e automação completa para o seu negócio digital. Aproveite 30 dias grátis para estruturar e controlar sua operação.</p>
+                
+                <div class="cupom-box">
+                    <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                    <div class="cupom-code">30 Dias Grátis</div>
+                </div>
+
+                <a href="https://app.linsgeek.com/zh-CN/register?code=X68WYZ2R" class="btn" style="width: 100%; text-align: center;" target="_blank">CADASTRAR 30 DIAS GRÁTIS</a>
+            </div>
+
         </div>
     </section>
 
