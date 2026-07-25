@@ -38,7 +38,7 @@
             background-image: radial-gradient(circle at center, #111 0%, #000 100%);
         }
 
-        h1, h2, h3, .price {
+        h1, h2, h3 {
             font-family: 'Cinzel', serif;
             font-weight: 700;
         }
@@ -110,7 +110,6 @@
             color: var(--gold-main);
         }
 
-        /* Botão do Menu Mobile (Hambúrguer) - Invisível no Desktop */
         .menu-toggle {
             display: none;
             background: none;
@@ -246,16 +245,9 @@
             gap: 32px;
         }
         
-        /* --- RESPONSIVIDADE MOBILE --- */
         @media (max-width: 900px) {
-            .container, .nav-container {
-                padding: 0 20px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
+            .container, .nav-container { padding: 0 20px; }
+            .menu-toggle { display: block; }
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -267,40 +259,17 @@
                 gap: 20px;
                 padding: 30px 0;
                 border-bottom: 1px solid var(--border-color);
-                display: none; /* Escondido por padrão até ser aberto */
+                display: none;
             }
-
-            .nav-links.active {
-                display: flex; /* Mostra quando ativado via JS */
-            }
-
-            .hero-grid { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                justify-items: center; 
-                gap: 40px;
-            }
-
-            .hero-image-box { 
-                max-width: 280px; 
-                height: 360px; 
-                margin: 0 auto; 
-            }
-
-            .hero-content { 
-                text-align: center; 
-            }
-
-            .expert-tag { 
-                justify-content: center; 
-            }
-
-            .grid-2 { 
-                grid-template-columns: 1fr; 
-            }
+            .nav-links.active { display: flex; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 40px; }
+            .hero-image-box { max-width: 280px; height: 360px; margin: 0 auto; }
+            .hero-content { text-align: center; }
+            .expert-tag { justify-content: center; }
+            .grid-2 { grid-template-columns: 1fr; }
         }
 
-        /* --- CARDS --- */
+        /* --- CARDS & SOLUÇÕES --- */
         .card {
             background-color: var(--bg-surface);
             padding: 48px 40px;
@@ -331,10 +300,21 @@
 
         .card:hover::before { opacity: 1; }
 
-        .card-icon {
-            font-size: 2.5rem;
+        .card-img-box {
+            width: 100%;
+            height: 220px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
             margin-bottom: 24px;
-            color: var(--gold-main);
+            background: #000;
+        }
+
+        .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         .card h3 {
@@ -394,52 +374,6 @@
             font-weight: 300;
         }
 
-        /* --- PRICING CARDS --- */
-        .pricing-card {
-            text-align: center;
-            align-items: center;
-        }
-
-        .pricing-card.highlight {
-            border: 1px solid var(--gold-dark);
-            background: #0a0a0a;
-            transform: scale(1.03);
-        }
-
-        .pricing-card.highlight::before { opacity: 1; }
-
-        .pricing-badge {
-            position: absolute;
-            top: -14px; left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold-gradient);
-            color: #000;
-            padding: 4px 16px;
-            border-radius: 2px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .price {
-            font-size: 3.5rem;
-            margin: 24px 0 8px;
-            color: var(--gold-main);
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .price span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: var(--text-secondary);
-            font-weight: 400;
-            letter-spacing: 0;
-            -webkit-text-fill-color: var(--text-secondary);
-        }
-
         /* --- FOOTER --- */
         footer {
             text-align: center;
@@ -459,7 +393,6 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">O FILHO DO REI <span class="crown">♛</span></a>
             
-            <!-- Botão Hambúrguer para Celular -->
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
                 ☰
             </button>
@@ -469,7 +402,6 @@
                 <li><a href="#historia" onclick="fecharMenu()">História</a></li>
                 <li><a href="#solucoes" onclick="fecharMenu()">Soluções</a></li>
                 <li><a href="#consultoria" onclick="fecharMenu()">Consultoria</a></li>
-                <li><a href="#planos" onclick="fecharMenu()">Planos</a></li>
             </ul>
         </div>
     </nav>
@@ -510,9 +442,11 @@
     <section id="solucoes" class="section container">
         <h2 class="section-title">Soluções feitas por um vendedor, para vendedores</h2>
         <div class="grid-2">
-            <!-- Robô -->
+            <!-- Robô (Com foto roboshopee.png, link do Drive e Sem Preço) -->
             <div class="card">
-                <div class="card-icon">♛</div>
+                <div class="card-img-box">
+                    <img src="roboshopee.png" alt="Robô de Automação Shopee">
+                </div>
                 <h3>Robô de Automação Shopee</h3>
                 <p>Criado para eliminar gargalos e o trabalho mecânico do dia a dia. O robô assume as tarefas repetitivas para que a sua expedição não dependa de dezenas de braços operacionais.</p>
                 <ul>
@@ -520,12 +454,15 @@
                     <li>Libera seu tempo para focar na estratégia e nas compras</li>
                     <li>Permite rodar a operação com o mínimo de funcionários</li>
                 </ul>
+                <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="width: 100%; text-align: center; margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
                 <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o%20Shopee." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE O ROBÔ</a>
             </div>
 
-            <!-- Conciliação -->
+            <!-- Conciliação (Com foto) -->
             <div class="card">
-                <div class="card-icon">⚖</div>
+                <div class="card-img-box">
+                    <img src="conciliacao.jpg" alt="Sistema de Conciliação">
+                </div>
                 <h3>Sistema de Conciliação</h3>
                 <p>O lucro de verdade não está no painel de vendas, está no seu bolso. Este sistema cruza cada centavo de taxas, comissões e repasses da Shopee para auditar a plataforma.</p>
                 <ul>
@@ -533,6 +470,7 @@
                     <li>Garante que a sua margem de lucro projetada seja real</li>
                     <li>Traz a visão analítica e fria que todo caixa precisa</li>
                 </ul>
+                <a href="link-para-baixar-conciliacao.zip" class="btn" style="width: 100%; text-align: center; margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DA CONCILIAÇÃO</a>
                 <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" style="width: 100%; text-align: center;" target="_blank">FALAR SOBRE CONCILIAÇÃO</a>
             </div>
         </div>
@@ -544,40 +482,6 @@
             <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Consultoria Avançada</h2>
             <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 40px auto; font-weight: 300;">A resposta para o sucesso não é sorte, é matemática. Minha consultoria é voltada para lojistas que precisam profissionalizar a operação. Vamos dissecar seus custos, otimizar logística, traçar simulações de importação formal e aplicar uma gestão para escalar seu lucro.<br><br><strong style="color: var(--gold-main); font-weight: 600;">As ferramentas estão inclusas no pacote.</strong></p>
             <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Tenho%20interesse%20na%20Consultoria%20Avan%C3%A7ada." class="btn" style="width: auto; margin: 0 auto;" target="_blank">APLICAR PARA A CONSULTORIA</a>
-        </div>
-    </section>
-
-    <!-- PREÇOS -->
-    <section id="planos" class="section container" style="padding-top: 40px;">
-        <h2 class="section-title">Escolha o seu plano para o Combo</h2>
-        <div class="grid-2">
-            <!-- Mensal -->
-            <div class="card pricing-card">
-                <h3 style="color: var(--text-primary);">Plano Mensal</h3>
-                <p>Para quem quer testar as ferramentas na prática.</p>
-                <div class="price">R$ 147<span>/mês</span></div>
-                <ul style="text-align: left; width: 100%; margin-top: 16px;">
-                    <li>Acesso ao Robô Shopee</li>
-                    <li>Acesso ao Sistema de Conciliação</li>
-                    <li>Suporte via WhatsApp</li>
-                </ul>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Combo%20no%20Plano%20Mensal%20via%20PIX." class="btn btn-outline" style="width: 100%;" target="_blank">ASSINAR MENSAL</a>
-            </div>
-
-            <!-- Anual -->
-            <div class="card pricing-card highlight">
-                <div class="pricing-badge">Mais Vantajoso</div>
-                <h3 style="color: var(--gold-main);">Plano Anual</h3>
-                <p>A escolha mais inteligente. Economize mais de R$ 600.</p>
-                <div class="price">R$ 97<span>/mês</span></div>
-                <p style="font-size: 0.9rem; margin-top: -4px; margin-bottom: 24px; color: var(--text-secondary);">(Pagamento único de R$ 1.164,00)</p>
-                <ul style="text-align: left; width: 100%;">
-                    <li>Acesso completo por 12 meses</li>
-                    <li>Prioridade VIP no suporte</li>
-                    <li>Garantia Incondicional de 7 Dias</li>
-                </ul>
-                <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Quero%20assinar%20o%20Combo%20Anual%20via%20PIX%20com%20desconto." class="btn" style="width: 100%;" target="_blank">ASSINAR ANUAL AGORA</a>
-            </div>
         </div>
     </section>
 
