@@ -294,10 +294,27 @@
             transform: translateY(-5px);
         }
 
-        /* Altura fixa padronizada para exibir as imagens completas sem distorcer o alinhamento */
-        .card-img-box {
+        /* Caixa de imagem dos cards de Soluções preenchendo todo o quadrado */
+        .card .card-img-box {
             width: 100%;
             height: 200px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: #000;
+        }
+
+        .card .card-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Caixa de imagem dos Parceiros mantendo proporção ideal */
+        .partner-card .card-img-box {
+            width: 100%;
+            height: 180px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             overflow: hidden;
@@ -309,7 +326,7 @@
             flex-shrink: 0;
         }
 
-        .card-img-box img {
+        .partner-card .card-img-box img {
             width: 100%;
             height: 100%;
             object-fit: contain;
