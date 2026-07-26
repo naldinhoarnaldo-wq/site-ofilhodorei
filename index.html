@@ -247,16 +247,36 @@
             gap: 32px;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        /* Flexbox Container para os 3 Parceiros (Garante mesma altura e alinhamento perfeito) */
+        .partners-flex-row {
+            display: flex;
+            flex-wrap: wrap;
             gap: 32px;
-            align-items: stretch;
             margin-bottom: 40px;
+            align-items: stretch;
+        }
+
+        .partner-card-flex {
+            background-color: var(--bg-surface);
+            padding: 32px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .partner-card-flex:hover {
+            border-color: #333;
+            transform: translateY(-5px);
         }
         
         @media (max-width: 1024px) {
-            .grid-3 { grid-template-columns: 1fr; }
+            .partners-flex-row { flex-direction: column; }
         }
 
         @media (max-width: 900px) {
@@ -322,30 +342,18 @@
             object-fit: contain;
         }
 
-        .card h3 {
+        .card h3, .partner-card-flex h3 {
             font-size: 1.4rem;
             margin-bottom: 14px;
             color: var(--text-primary);
             letter-spacing: 1px;
         }
 
-        .card p {
+        .card p, .partner-card-flex p {
             color: var(--text-secondary);
             margin-bottom: 20px;
             font-weight: 300;
             font-size: 0.95rem;
-        }
-
-        .card-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-footer {
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
         }
 
         /* --- ABOUT BOX --- */
@@ -491,7 +499,7 @@
         <div class="grid-2">
             <!-- Robô -->
             <div class="card">
-                <div class="card-content">
+                <div>
                     <div class="card-img-box">
                         <img src="roboshopee.png" alt="Robô de Automação">
                     </div>
@@ -503,7 +511,7 @@
                         <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Permite rodar a operação com o mínimo de funcionários</li>
                     </ul>
                 </div>
-                <div class="card-footer">
+                <div>
                     <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
@@ -511,7 +519,7 @@
 
             <!-- Conciliação -->
             <div class="card">
-                <div class="card-content">
+                <div>
                     <div class="card-img-box">
                         <img src="conciliação.png" alt="Sistema de Conciliação">
                     </div>
@@ -523,7 +531,7 @@
                         <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Traz a visão analítica e fria que todo caixa precisa</li>
                     </ul>
                 </div>
-                <div class="card-footer">
+                <div>
                     <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
@@ -535,19 +543,19 @@
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <!-- Os 3 Cards de Parceiros -->
-        <div class="grid-3">
+        <!-- Os 3 Cards de Parceiros em Flexbox Row (Garante o botão sempre visível e alinhado) -->
+        <div class="partners-flex-row">
             
-            <!-- Parceiro 1: Onicanal (Com espaçador invisível idêntico aos outros para alinhar o botão) -->
-            <div class="card">
-                <div class="card-content">
+            <!-- Parceiro 1: Onicanal -->
+            <div class="partner-card-flex">
+                <div>
                     <div class="card-img-box">
                         <img src="onicanal.jpg" alt="Onicanal - Profissão Ecommerce">
                     </div>
                     <h3>Onicanal - Profissão Ecommerce</h3>
                     <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
                 </div>
-                <div class="card-footer">
+                <div>
                     <div class="cupom-box" style="visibility: hidden; pointer-events: none;">
                         <span style="font-size: 0.8rem; display: block;">&nbsp;</span>
                         <div class="cupom-code">&nbsp;</div>
@@ -557,15 +565,15 @@
             </div>
 
             <!-- Parceiro 2: Letzee -->
-            <div class="card">
-                <div class="card-content">
+            <div class="partner-card-flex">
+                <div>
                     <div class="card-img-box">
                         <img src="letzee.png" alt="Letzee">
                     </div>
                     <h3>Letzee</h3>
                     <p>Otimize sua operação com benefícios exclusivos. Teste grátis por 15 dias e garanta até 30% de desconto por 1 ano.</p>
                 </div>
-                <div class="card-footer">
+                <div>
                     <div class="cupom-box">
                         <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
                         <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
@@ -575,15 +583,15 @@
             </div>
 
             <!-- Parceiro 3: Linsgeek ERP -->
-            <div class="card">
-                <div class="card-content">
+            <div class="partner-card-flex">
+                <div>
                     <div class="card-img-box">
                         <img src="linsgeek.png" alt="Linsgeek ERP">
                     </div>
                     <h3>Linsgeek ERP</h3>
                     <p>Gestão e automação completa para o seu negócio digital. Aproveite 30 dias grátis para estruturar e controlar sua operação.</p>
                 </div>
-                <div class="card-footer">
+                <div>
                     <div class="cupom-box">
                         <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
                         <div class="cupom-code">30 Dias Grátis</div>
