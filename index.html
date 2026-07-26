@@ -251,7 +251,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: stretch;
+            margin-bottom: 40px;
         }
         
         @media (max-width: 1024px) {
@@ -291,7 +291,7 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            justify-content: space-between;
             position: relative;
         }
 
@@ -347,7 +347,6 @@
             font-size: 0.95rem;
         }
 
-        /* Classes estruturais seguras para flexbox */
         .card-content {
             flex-grow: 1;
             display: flex;
@@ -546,9 +545,11 @@
     <!-- PARCERIAS, LINKS E CUPONS -->
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
+        
+        <!-- Os 3 Cards de Parceiros -->
         <div class="grid-3">
             
-            <!-- Parceiro 1: Onicanal -->
+            <!-- Parceiro 1: Onicanal (Com espaçador invisível igual aos outros para alinhar perfeitamente) -->
             <div class="card">
                 <div class="card-content">
                     <div class="card-img-box">
@@ -558,6 +559,10 @@
                     <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
                 </div>
                 <div class="card-footer">
+                    <div class="cupom-box" style="visibility: hidden; pointer-events: none;">
+                        <span style="font-size: 0.8rem; display: block;">&nbsp;</span>
+                        <div class="cupom-code">&nbsp;</div>
+                    </div>
                     <a href="https://go.hotmart.com/W51253421F?dp=1" class="btn" target="_blank">CONHECER O CURSO</a>
                 </div>
             </div>
@@ -576,7 +581,7 @@
                         <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
                         <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
                     </div>
-                    <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20benef%C3%ADcio%20da%20Letzee." class="btn" target="_blank">GARANTIR BENEFÍCIO</a>
+                    <a href="https://app.letzee.ai/register?cupom=OFILHODOREI" class="btn" target="_blank">GARANTIR BENEFÍCIO</a>
                 </div>
             </div>
 
@@ -599,6 +604,14 @@
             </div>
 
         </div>
+
+        <!-- Bloco "Seja um Parceiro" Abaixo dos 3 -->
+        <div class="card" style="text-align: center; padding: 48px 40px; border-color: var(--gold-dark); max-width: 100%;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--gold-light);">Quer ser um parceiro estratégico?</h3>
+            <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px auto; font-weight: 300;">Trabalhamos ao lado de marcas e soluções consolidadas para fortalecer o ecossistema de e-commerce. Se você deseja conectar sua empresa ou plataforma aos nossos lojistas, vamos conversar.</p>
+            <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20sobre%20Parcerias." class="btn btn-outline" style="width: auto; margin: 0 auto;" target="_blank">QUERO SER PARCEIRO</a>
+        </div>
+
     </section>
 
     <!-- CONSULTORIA -->
