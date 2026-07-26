@@ -252,7 +252,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
+            align-items: stretch; /* Garante que todas as caixas da linha tenham a mesma altura */
             margin-bottom: 40px;
         }
 
@@ -273,6 +273,7 @@
             transform: translateY(-5px);
         }
 
+        /* Partner Card perfeitamente alinhado via flexbox */
         .partner-card {
             background-color: var(--bg-surface);
             padding: 28px 24px;
@@ -281,6 +282,8 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
             position: relative;
         }
 
@@ -353,7 +356,7 @@
             padding: 12px;
             border-radius: 6px;
             text-align: center;
-            margin-top: auto;
+            margin-top: auto; /* Empurra o bloco de cupom para baixo uniformemente */
         }
 
         .cupom-code {
@@ -539,7 +542,7 @@
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <!-- Os 3 Cards de Parceiros -->
+        <!-- Os 3 Cards de Parceiros perfeitamente alinhados -->
         <div class="grid-3">
             
             <!-- Parceiro 1: Onicanal -->
@@ -556,7 +559,7 @@
                         <span style="font-size: 0.8rem; color: var(--gold-main); text-transform: uppercase; display: block;">Formação:</span>
                         <div class="cupom-code">Acesso Completo</div>
                     </div>
-                    <a href="https://cf8onre.s.gy/my-link" class="btn" target="_blank">CONHECER O CURSO</a>
+                    <a href="https://l1nk.dev/m6ganzz" class="btn" target="_blank">CONHECER O CURSO</a>
                 </div>
             </div>
 
