@@ -293,24 +293,23 @@
             transform: translateY(-5px);
         }
 
-        /* Caixa de imagem dinâmica para exibir fotos completas sem cortes */
         .card-img-box {
             width: 100%;
-            height: auto;
+            height: 180px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .card-img-box img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
             object-fit: contain;
         }
 
