@@ -252,7 +252,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
+            align-items: stretch; /* Garante que todos os cards da linha tenham exatamente a mesma altura */
             margin-bottom: 40px;
         }
 
@@ -281,6 +281,8 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            justify-content: space-between; /* Empurra o conteúdo interno para alinhar perfeitamente */
+            height: 100%;
             position: relative;
         }
 
@@ -539,7 +541,7 @@
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <!-- Os 3 Cards de Parceiros -->
+        <!-- Os 3 Cards de Parceiros com alinhamento perfeito -->
         <div class="grid-3">
             
             <!-- Parceiro 1: Onicanal -->
