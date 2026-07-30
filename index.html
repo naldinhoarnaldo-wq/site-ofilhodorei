@@ -291,10 +291,10 @@
             transform: translateY(-5px);
         }
 
-        /* Imagens dos cards de Soluções (Sem fundo preto, preenchendo o quadrado) */
+        /* Imagens dos cards de Soluções (Quadrado perfeito 1:1, sem cortar e sem preto) */
         .card .card-img-box {
             width: 100%;
-            height: 280px;
+            aspect-ratio: 1 / 1;
             border-radius: 6px;
             border: none;
             overflow: hidden;
@@ -308,15 +308,15 @@
         .card .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros (Maiores no mobile) */
+        /* Caixa de imagem dos Parceiros (Quadrado perfeito 1:1, sem cortar) */
         .partner-card .card-img-box {
             width: 100%;
-            height: 220px;
+            aspect-ratio: 1 / 1;
             border-radius: 6px;
             border: none;
             overflow: hidden;
@@ -331,7 +331,7 @@
         .partner-card .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             display: block;
         }
@@ -457,14 +457,6 @@
             .hero-image-box { max-width: 280px; height: 360px; margin: 0 auto; }
             .hero-content { text-align: center; }
             .expert-tag { justify-content: center; }
-            
-            /* Ajustes para fotos maiores e sem preto nos quadrados em dispositivos móveis */
-            .card .card-img-box {
-                height: 340px;
-            }
-            .partner-card .card-img-box {
-                height: 280px;
-            }
         }
     </style>
 </head>
