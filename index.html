@@ -291,22 +291,27 @@
             transform: translateY(-5px);
         }
 
+        /* Imagens dos cards de Soluções */
         .card .card-img-box {
             width: 100%;
-            height: auto;
+            height: 200px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
             overflow: hidden;
             margin-bottom: 16px;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card .card-img-box img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: contain;
         }
 
+        /* Caixa de imagem dos Parceiros */
         .partner-card .card-img-box {
             width: 100%;
             height: 180px;
@@ -363,7 +368,7 @@
             font-weight: 300;
         }
 
-        /* --- CUPOM / PARCEIROS STYLES --- */
+        /* --- CUPOM / BENEFICIO STYLES --- */
         .cupom-box {
             background: rgba(224, 170, 62, 0.05);
             border: 1px dashed var(--gold-main);
@@ -519,7 +524,11 @@
                     </ul>
                 </div>
                 <div>
-                    <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                        <div class="cupom-code">Teste Grátis Disponível</div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
             </div>
@@ -538,16 +547,19 @@
                     </ul>
                 </div>
                 <div>
-                    <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                        <div class="cupom-code">Auditoria Completa de Caixa</div>
+                    </div>
+                    <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
             </div>
 
             <div class="card">
                 <div>
-                    <div style="background: rgba(224, 170, 62, 0.1); border: 1px solid var(--gold-main); border-radius: 6px; padding: 24px; text-align: center; margin-bottom: 16px;">
-                        <span style="font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.1rem; font-weight: 700; letter-spacing: 2px; display: block;">📖 LIVRO DIGITAL</span>
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; display: block;">O Filho do Rei</span>
+                    <div class="card-img-box">
+                        <img src="ebook.png" alt="E-book Fatura - O Filho do Rei">
                     </div>
                     <h3>Fatura! A Verdade Crua do Vendedor Online</h3>
                     <p>Conheça a realidade nua e crua do e-book estratégico desenvolvido para lojistas que querem blindar o negócio e entender os números reais do digital.</p>
