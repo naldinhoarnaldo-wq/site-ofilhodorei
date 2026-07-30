@@ -204,7 +204,7 @@
             box-shadow: 0 4px 15px rgba(224, 170, 62, 0.2);
             width: 100%;
             text-align: center;
-            margin-top: 16px;
+            margin-top: 12px;
         }
 
         .btn:hover {
@@ -252,7 +252,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
             align-items: stretch;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .card {
@@ -559,7 +559,7 @@
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <!-- Os 3 Cards de Parceiros -->
+        <!-- Linha 1 de Parceiros (3 cards) -->
         <div class="grid-3">
             
             <!-- Parceiro 1: Onicanal -->
@@ -618,7 +618,52 @@
 
         </div>
 
-        <!-- Bloco "Seja um Parceiro" Abaixo dos 3 -->
+        <!-- Linha 2 de Parceiros (2 cards: Olist e JoomPulse com os 50 prompts integrados) -->
+        <div class="grid-3" style="grid-template-columns: repeat(2, 1fr); max-width: 920px; margin: 0 auto 32px auto;">
+            
+            <!-- Parceiro 4: Olist -->
+            <div class="partner-card">
+                <div>
+                    <div class="card-img-box">
+                        <img src="olisterp.jpg" alt="Olist">
+                    </div>
+                    <h3>Olist</h3>
+                    <p>Ganhe agilidade na operação, reduza erros e seja mais eficiente com Olist. Torne sua operação mais simples, automatizada e centralizada.</p>
+                </div>
+                <div>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom Exclusivo:</span>
+                        <div class="cupom-code">FILHODOREI</div>
+                    </div>
+                    <a href="https://app.olist.com/pt-BR/signup?coupon=FILHODOREI" class="btn" target="_blank">CADASTRAR COM DESCONTO</a>
+                </div>
+            </div>
+
+            <!-- Parceiro 5: JoomPulse (Com Teste, Desconto e 50 Prompts) -->
+            <div class="partner-card">
+                <div>
+                    <div class="card-img-box">
+                        <img src="joompulse.png" alt="JoomPulse">
+                    </div>
+                    <h3>JoomPulse</h3>
+                    <p>Inteligência de mercado e automação com IA. Teste grátis, assine com 20% de desconto ou acesse o bônus de 50 Prompts.</p>
+                </div>
+                <div>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom & Bônus:</span>
+                        <div class="cupom-code">20% OFF (FILHODOREI20)</div>
+                    </div>
+                    <div style="display: flex; gap: 6px; margin-top: 12px;">
+                        <a href="https://joompulse.com/?utm_source=ref&utm_medium=filhodorei" class="btn btn-outline" target="_blank" style="font-size: 0.75rem; padding: 10px 6px; margin-top: 0;">TESTAR</a>
+                        <a href="https://joompulse.com/fast-track?utm_source=ref&utm_medium=filhodorei&promocode=FILHODOREI20" class="btn" target="_blank" style="font-size: 0.75rem; padding: 10px 6px; margin-top: 0;">ASSINAR 20% OFF</a>
+                    </div>
+                    <a href="https://br.joompulse.com/50-prompts?utm_source=ref&utm_medium=filhodorei" class="btn btn-outline" target="_blank" style="font-size: 0.75rem; padding: 8px 10px; margin-top: 8px; border-color: var(--gold-light); color: var(--gold-light);">🎁 ACESSAR 50 PROMPTS DE IA</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bloco "Seja um Parceiro" Abaixo dos Cards -->
         <div class="card" style="text-align: center; padding: 48px 40px; border-color: var(--gold-dark); max-width: 100%;">
             <h3 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--gold-light);">Quer ser um parceiro estratégico?</h3>
             <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px auto; font-weight: 300;">Trabalhamos ao lado de marcas e soluções consolidadas para fortalecer o ecossistema de e-commerce. Se você deseja conectar sua empresa ou plataforma aos nossos lojistas, vamos conversar.</p>
