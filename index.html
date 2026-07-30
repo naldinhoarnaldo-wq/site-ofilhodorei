@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Filho do Rei | Arnaldo Carriel - Gestor de E-commerce</title>
     <meta name="description" content="Site oficial de Arnaldo Carriel (O Filho do Rei). Operador nato de e-commerce focado em eliminar gargalos operacionais e blindar o lucro real de quem vende no digital.">
-    <!-- Miniatura (Favicon) na aba do navegador -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Fontes Premium: Cinzel (Títulos/Logo) e Montserrat (Textos) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -255,6 +253,16 @@
             margin-bottom: 32px;
         }
 
+        /* Grade dedicada para 2 parceiros na segunda linha com responsividade correta */
+        .grid-partners-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 920px;
+            margin: 0 auto 32px auto;
+            align-items: stretch;
+        }
+
         .card {
             background-color: var(--bg-surface);
             padding: 28px 24px;
@@ -426,7 +434,7 @@
         }
 
         @media (max-width: 1024px) {
-            .grid-3 { grid-template-columns: 1fr; }
+            .grid-3, .grid-partners-2 { grid-template-columns: 1fr; }
             .grid-2 { grid-template-columns: 1fr; }
         }
 
@@ -457,7 +465,6 @@
 </head>
 <body>
 
-    <!-- MENU SUPERIOR FIXO / HEADER -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">O FILHO DO REI <span class="crown">👑</span></a>
@@ -478,15 +485,12 @@
         </div>
     </nav>
 
-    <!-- HERO (PRIMEIRA DOBRA) -->
     <header class="hero">
         <div class="container">
             <div class="hero-grid">
-                <!-- Coluna da Foto -->
                 <div class="hero-image-box">
                     <img src="perfil.jpg" alt="Arnaldo Carriel - O Filho do Rei Gestor de E-commerce">
                 </div>
-                <!-- Coluna da Identidade e Apresentação -->
                 <div class="hero-content">
                     <div class="expert-tag">O Filho do Rei <span class="crown">👑</span></div>
                     <div class="expert-sub">Arnaldo Carriel • Gestor de E-commerce</div>
@@ -499,7 +503,6 @@
         </div>
     </header>
 
-    <!-- SOBRE A TRAJETÓRIA (A SUA HISTÓRIA) -->
     <section id="historia" class="section container">
         <div class="about-box">
             <h2>Desenvolvido no Campo de Batalha por Arnaldo Carriel</h2>
@@ -510,11 +513,9 @@
         </div>
     </section>
 
-    <!-- SOLUÇÕES -->
     <section id="solucoes" class="section container">
         <h2 class="section-title">Soluções feitas por um vendedor, para vendedores</h2>
         <div class="grid-2">
-            <!-- Robô -->
             <div class="card">
                 <div>
                     <div class="card-img-box">
@@ -534,7 +535,6 @@
                 </div>
             </div>
 
-            <!-- Conciliação -->
             <div class="card">
                 <div>
                     <div class="card-img-box">
@@ -556,14 +556,11 @@
         </div>
     </section>
 
-    <!-- PARCERIAS, LINKS E CUPONS -->
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <!-- Linha 1 de Parceiros (3 cards) -->
         <div class="grid-3">
             
-            <!-- Parceiro 1: Onicanal -->
             <div class="partner-card">
                 <div>
                     <div class="card-img-box">
@@ -581,7 +578,6 @@
                 </div>
             </div>
 
-            <!-- Parceiro 2: Letzee -->
             <div class="partner-card">
                 <div>
                     <div class="card-img-box">
@@ -599,7 +595,6 @@
                 </div>
             </div>
 
-            <!-- Parceiro 3: Linsgeek ERP -->
             <div class="partner-card">
                 <div>
                     <div class="card-img-box">
@@ -619,10 +614,8 @@
 
         </div>
 
-        <!-- Linha 2 de Parceiros (2 cards: Olist e JoomPulse) -->
-        <div class="grid-3" style="grid-template-columns: repeat(2, 1fr); max-width: 920px; margin: 0 auto 32px auto;">
+        <div class="grid-partners-2">
             
-            <!-- Parceiro 4: Olist (Link de parceiro atualizado) -->
             <div class="partner-card">
                 <div>
                     <div class="card-img-box">
@@ -643,7 +636,6 @@
                 </div>
             </div>
 
-            <!-- Parceiro 5: JoomPulse (Com Teste, Desconto e 50 Prompts) -->
             <div class="partner-card">
                 <div>
                     <div class="card-img-box">
@@ -667,7 +659,6 @@
 
         </div>
 
-        <!-- Bloco "Seja um Parceiro" Abaixo dos Cards -->
         <div class="card" style="text-align: center; padding: 48px 40px; border-color: var(--gold-dark); max-width: 100%;">
             <h3 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--gold-light);">Quer ser um parceiro estratégico?</h3>
             <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 30px auto; font-weight: 300;">Trabalhamos ao lado de marcas e soluções consolidadas para fortalecer o ecossistema de e-commerce. Se você deseja conectar sua empresa ou plataforma aos nossos lojistas, vamos conversar.</p>
@@ -676,7 +667,6 @@
 
     </section>
 
-    <!-- CONSULTORIA -->
     <section id="consultoria" class="section container">
         <div class="card" style="text-align: center; padding: 64px 40px; border-color: var(--gold-dark);">
             <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Consultoria Avançada com Arnaldo Carriel</h2>
@@ -685,7 +675,6 @@
         </div>
     </section>
 
-    <!-- GRUPO DE VENDEDORES GRÁTIS -->
     <section id="grupo" class="section container">
         <div class="card" style="text-align: center; padding: 64px 40px; border-color: var(--gold-dark); max-width: 900px; margin: 0 auto;">
             <h2 style="font-size: 2.2rem; margin-bottom: 24px; color: var(--gold-light); letter-spacing: 1px;">Grupo de Vendedores Grátis</h2>
@@ -694,7 +683,6 @@
         </div>
     </section>
 
-    <!-- ÚLTIMO VÍDEO DO YOUTUBE -->
     <section id="videos" class="section container">
         <h2 class="section-title">Último Conteúdo no YouTube</h2>
         <div class="card" style="max-width: 900px; margin: 0 auto; text-align: center;">
@@ -705,7 +693,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 O Filho do Rei. Todos os direitos reservados.</p>
@@ -713,7 +700,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DO MENU MOBILE -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
