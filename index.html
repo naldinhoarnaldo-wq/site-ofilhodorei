@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -238,13 +238,6 @@
         }
 
         /* --- GRIDS & CARDS --- */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: stretch;
-        }
-
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -253,7 +246,6 @@
             margin-bottom: 32px;
         }
 
-        /* Grade dedicada para 2 parceiros na segunda linha com responsividade correta */
         .grid-partners-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -299,27 +291,32 @@
             transform: translateY(-5px);
         }
 
-        /* Imagens dos cards de Soluções ocupando largura total proporcional */
+        /* Imagens dos cards de Soluções (Sem fundo preto, preenchendo o quadrado) */
         .card .card-img-box {
             width: 100%;
-            height: auto;
+            height: 280px;
             border-radius: 6px;
-            border: 1px solid var(--border-color);
+            border: none;
             overflow: hidden;
             margin-bottom: 16px;
-            background: #000;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card .card-img-box img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros sem fundo preto e sem borda (somente a foto/logo) */
+        /* Caixa de imagem dos Parceiros (Maiores no mobile) */
         .partner-card .card-img-box {
             width: 100%;
-            height: 180px;
+            height: 220px;
             border-radius: 6px;
             border: none;
             overflow: hidden;
@@ -334,7 +331,9 @@
         .partner-card .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .card h3, .partner-card h3 {
@@ -373,7 +372,7 @@
             font-weight: 300;
         }
 
-        /* --- CUPOM / PARCEIROS STYLES --- */
+        /* --- CUPOM / BENEFICIO STYLES --- */
         .cupom-box {
             background: rgba(224, 170, 62, 0.05);
             border: 1px dashed var(--gold-main);
@@ -435,7 +434,6 @@
 
         @media (max-width: 1024px) {
             .grid-3, .grid-partners-2 { grid-template-columns: 1fr; }
-            .grid-2 { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
@@ -459,7 +457,14 @@
             .hero-image-box { max-width: 280px; height: 360px; margin: 0 auto; }
             .hero-content { text-align: center; }
             .expert-tag { justify-content: center; }
-            .grid-2 { grid-template-columns: 1fr; }
+            
+            /* Ajustes para fotos maiores e sem preto nos quadrados em dispositivos móveis */
+            .card .card-img-box {
+                height: 340px;
+            }
+            .partner-card .card-img-box {
+                height: 280px;
+            }
         }
     </style>
 </head>
@@ -515,7 +520,8 @@
 
     <section id="solucoes" class="section container">
         <h2 class="section-title">Soluções feitas por um vendedor, para vendedores</h2>
-        <div class="grid-2">
+        <div class="grid-3">
+            
             <div class="card">
                 <div>
                     <div class="card-img-box">
@@ -530,7 +536,11 @@
                     </ul>
                 </div>
                 <div>
-                    <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                        <div class="cupom-code">Teste Grátis Disponível</div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1F3Zc-cCofyaFw3wA9RXxJch0CwfMX2Cg/view?usp=drive_link" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">BAIXAR TESTE GRÁTIS DO ROBÔ</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Rob%C3%B4%20de%20Automa%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
             </div>
@@ -549,10 +559,38 @@
                     </ul>
                 </div>
                 <div>
-                    <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                        <div class="cupom-code">Auditoria Completa de Caixa</div>
+                    </div>
+                    <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
             </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-img-box">
+                        <img src="ebook.png" alt="E-book Fatura - O Filho do Rei">
+                    </div>
+                    <h3>Fatura! A Verdade Crua do Vendedor Online</h3>
+                    <p>Conheça a realidade nua e crua do e-book estratégico desenvolvido para lojistas que querem blindar o negócio e entender os números reais do digital.</p>
+                    <ul style="list-style: none; margin-bottom: 24px;">
+                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">A verdade nua e crua da operação de e-commerce</li>
+                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Mentalidade analítica e fria para escalar com lucro</li>
+                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Leitura essencial para quem vende em marketplaces</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Adquira já:</span>
+                        <div class="cupom-code">Acesso Imediato na Hotmart</div>
+                    </div>
+                    <a href="https://hotmart.com/pt-br/marketplace/produtos/fatura-quem-aguenta-a-verdade-crua-do-vendedor-online/S99626352T" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">COMPRAR O E-BOOK</a>
+                    <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20E-book." class="btn btn-outline" target="_blank">FALAR SOBRE O E-BOOK</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
