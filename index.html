@@ -223,6 +223,15 @@
             color: var(--gold-light);
         }
 
+        .btn-disabled {
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: none;
+        }
+
         /* --- SECTIONS --- */
         .section {
             padding: 100px 0;
@@ -244,15 +253,6 @@
             gap: 32px;
             align-items: stretch;
             margin-bottom: 32px;
-        }
-
-        .grid-partners-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 920px;
-            margin: 0 auto 32px auto;
-            align-items: stretch;
         }
 
         .card {
@@ -433,7 +433,7 @@
         }
 
         @media (max-width: 1024px) {
-            .grid-3, .grid-partners-2 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
@@ -563,10 +563,10 @@
             <div class="card">
                 <div>
                     <div class="card-img-box">
-                        <img src="ebook.png" alt="Fatura Quem Aguenta – A Verdade Crua do Vendedor Online">
+                        <img src="ebook.png" alt="Manual do Filho do Rei - E-book Oficial">
                     </div>
-                    <h3>Fatura Quem Aguenta – A Verdade Crua do Vendedor Online</h3>
-                    <p>Conheça a realidade nua e crua do e-book estratégico desenvolvido para lojistas que querem blindar o negócio e entender os números reais do digital.</p>
+                    <h3>Manual do Filho do Rei</h3>
+                    <p>O e-book estratégico desenvolvido para lojistas que querem blindar o negócio, estruturar processos e entender os números reais do digital.</p>
                     <ul style="list-style: none; margin-bottom: 24px;">
                         <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">A verdade nua e crua da operação de e-commerce</li>
                         <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Mentalidade analítica e fria para escalar com lucro</li>
@@ -644,7 +644,7 @@
 
         </div>
 
-        <div class="grid-partners-2">
+        <div class="grid-3">
             
             <div class="partner-card">
                 <div>
@@ -684,6 +684,23 @@
                         <a href="https://joompulse.com/fast-track?utm_source=ref&utm_medium=filhodorei&promocode=FILHODOREI20" class="btn" target="_blank" style="font-size: 0.75rem; padding: 10px 6px; margin-top: 0;">ASSINAR 20% OFF</a>
                     </div>
                     <a href="https://br.joompulse.com/50-prompts?utm_source=ref&utm_medium=filhodorei" class="btn btn-outline" target="_blank" style="font-size: 0.75rem; padding: 8px 10px; margin-top: 8px; border-color: var(--gold-light); color: var(--gold-light);">🎁 ACESSAR 50 PROMPTS DE IA</a>
+                </div>
+            </div>
+
+            <div class="partner-card">
+                <div>
+                    <div class="card-img-box">
+                        <img src="joompro.png" alt="JoomPro">
+                    </div>
+                    <h3>JoomPro</h3>
+                    <p>Plataforma B2B de importação e *sourcing* direto da China com segurança, suporte completo e estrutura profissional para escalar.</p>
+                </div>
+                <div>
+                    <div class="cupom-box">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                        <div class="cupom-code">5% na Primeira Compra</div>
+                    </div>
+                    <span class="btn btn-disabled" style="margin-top: 12px;">EM BREVE</span>
                 </div>
             </div>
 
