@@ -316,7 +316,7 @@
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros (Quadrado perfeito 1:1) */
+        /* Caixa de imagem dos Parceiros padrão (Quadrado 1:1) */
         .partner-card .card-img-box {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -337,6 +337,21 @@
             object-fit: contain;
             object-position: center;
             display: block;
+        }
+
+        /* Caixa de imagem específica para a Time Envios (Proporção horizontal/larga ajustada) */
+        .partner-card .card-img-box.time-envios-box {
+            aspect-ratio: 16 / 9;
+            height: auto;
+            background: #000;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+        }
+
+        .partner-card .card-img-box.time-envios-box img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
         }
 
         .card h3, .partner-card h3 {
@@ -613,18 +628,18 @@
 
             <div class="partner-card">
                 <div>
-                    <div class="card-img-box">
+                    <div class="card-img-box time-envios-box">
                         <img src="logo_time.png" alt="Time Envios">
                     </div>
                     <h3>Time Envios</h3>
-                    <p>Especializada em entregas no mesmo dia em toda Capital e Grande-SP. Atendimento 100% Envio Flex Mercado Livre e Entrega Rápida Shopee com qualidade, segurança e agilidade.</p>
+                    <p>Nós da Time Envios Somos uma empresa especializada em entregas no mesmo dia em toda Capital e Grande-SP. Atendemos 100% do Envio Flex Mercado Livre e Entrega Rápida Shopee, buscando sempre entregar com qualidade, segurança e agilidade. Rotas criadas diariamente para garantir mais eficiência, viabilizando entregas instantâneas. Tudo isso por um valor acessível que cabe no seu bolso.</p>
                 </div>
                 <div>
                     <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom Exclusivo:</span>
-                        <div class="cupom-code">10% OFF (FILHODOREI)</div>
+                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                        <div class="cupom-code">10% OFF em Todos os Envios<br>(Cupom: FILHODOREI)</div>
                     </div>
-                    <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20Time%20Envios." class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR ENVIO</a>
+                    <a href="https://wa.me/5511914695500?text=Quero+contratar+seu+serviço+com+o+cupom:+OFILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR ENVIO</a>
                 </div>
             </div>
 
