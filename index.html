@@ -311,21 +311,20 @@
         .card .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros UNIFORME E SEM BORDAS PRETAS */
+        /* Caixa de imagem dos Parceiros: QUADRADO PERFEITO 1:1 IGUAL AOS OUTROS */
         .partner-card .card-img-box {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            height: auto;
+            aspect-ratio: 1 / 1;
             border-radius: 6px;
             border: none;
             overflow: hidden;
             margin-bottom: 16px;
-            background: transparent; /* Fundo transparente para eliminar as faixas pretas */
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -333,9 +332,10 @@
         }
 
         .partner-card .card-img-box img {
-            object-fit: cover; /* Cobre todo o espaço de forma proporcional sem sobrar bordas */
+            object-fit: contain;
             width: 100%;
             height: 100%;
+            object-position: center;
             display: block;
         }
 
