@@ -311,12 +311,12 @@
         .card .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros PADRONIZADA (Tamanho Único 16/9) */
+        /* Caixa de imagem dos Parceiros UNIFORME E SEM BORDAS PRETAS */
         .partner-card .card-img-box {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -325,7 +325,7 @@
             border: none;
             overflow: hidden;
             margin-bottom: 16px;
-            background: #000;
+            background: transparent; /* Fundo transparente para eliminar as faixas pretas */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -333,7 +333,7 @@
         }
 
         .partner-card .card-img-box img {
-            object-fit: contain;
+            object-fit: cover; /* Cobre todo o espaço de forma proporcional sem sobrar bordas */
             width: 100%;
             height: 100%;
             display: block;
