@@ -294,7 +294,7 @@
             transform: translateY(-5px);
         }
 
-        /* Imagens dos cards de Soluções (Quadrado perfeito 1:1, sem preto) */
+        /* Imagens dos cards de Soluções (Quadrado perfeito 1:1) */
         .card .card-img-box {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -316,15 +316,16 @@
             display: block;
         }
 
-        /* Caixa de imagem dos Parceiros padrão (Quadrado 1:1) */
+        /* Caixa de imagem dos Parceiros PADRONIZADA (Tamanho Único 16/9) */
         .partner-card .card-img-box {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 16 / 9; /* Define a proporção fixa para todas as logos */
+            height: auto;
             border-radius: 6px;
             border: none;
             overflow: hidden;
             margin-bottom: 16px;
-            background: transparent;
+            background: #000; /* Fundo preto padrão para logos transparentes */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -332,28 +333,10 @@
         }
 
         .partner-card .card-img-box img {
+            object-fit: contain;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: center;
             display: block;
-        }
-
-        /* Caixa de imagem específica para a Time Envios (Ajuste Fino para remover bordas da imagem original) */
-        .partner-card .card-img-box.time-envios-box {
-            aspect-ratio: 16 / 9;
-            height: auto;
-            background: transparent; /* Fundo transparente no container */
-            border: none; /* Sem borda no container */
-            padding: 0; /* Sem padding extra */
-        }
-
-        .partner-card .card-img-box.time-envios-box img {
-            object-fit: contain;
-            width: 100%;
-            height: 100%;
-            /* FILTRO MÁGICO: Remove o fundo preto da imagem original (assumindo que as letras são brancas) */
-            mix-blend-mode: screen; 
         }
 
         .card h3, .partner-card h3 {
@@ -435,4 +418,16 @@
         .youtube-container iframe {
             position: absolute;
             top: 0;
-            left
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.
