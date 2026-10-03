@@ -247,6 +247,17 @@
             margin-bottom: 32px;
         }
 
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            align-items: stretch;
+            margin-bottom: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .card {
             background-color: var(--bg-surface);
             padding: 28px 24px;
@@ -425,7 +436,7 @@
         }
 
         @media (max-width: 1024px) {
-            .grid-3 { grid-template-columns: 1fr; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
@@ -504,7 +515,7 @@
 
     <section id="solucoes" class="section container">
         <h2 class="section-title">Soluções feitas por um vendedor, para vendedores</h2>
-        <div class="grid-3">
+        <div class="grid-2">
             
             <div class="card">
                 <div>
@@ -526,29 +537,6 @@
                     </div>
                     <a href="https://nexavalia.com.br" class="btn" style="margin-bottom: 12px; margin-top: 12px; text-transform: none;" target="_blank">Acessar NexAvalia</a>
                     <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20suporte%20sobre%20a%20NexAvalia." class="btn btn-outline" style="text-transform: none;" target="_blank">Falar sobre a NexAvalia</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="conciliação.png" alt="Sistema de Conciliação para Marketplaces - O Filho do Rei">
-                    </div>
-                    <h3>Sistema de Conciliação para Marketplaces</h3>
-                    <p>O lucro de verdade não está no painel de vendas, está no seu bolso. Este sistema cruza cada centavo de taxas, comissões e repasses para auditar a sua operação nas plataformas.</p>
-                    <ul style="list-style: none; margin-bottom: 24px;">
-                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Encontra cobranças indevidas e taxas ocultas</li>
-                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Garante que a sua margem de lucro projetada seja real</li>
-                        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">Traz a visão analítica e fria que todo caixa precisa</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
-                        <div class="cupom-code">Auditoria Completa de Caixa</div>
-                    </div>
-                    <a href="https://filhodorei-shopee.streamlit.app/" class="btn" style="margin-bottom: 12px; margin-top: 12px;" target="_blank">TESTAR GRÁTIS A CONCILIAÇÃO</a>
-                    <a href="https://wa.me/5511916476903?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Concilia%C3%A7%C3%A3o." class="btn btn-outline" target="_blank">FALAR SOBRE O ROBÔ</a>
                 </div>
             </div>
 
