@@ -238,15 +238,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- GRIDS & CARDS --- */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            align-items: stretch;
-            margin-bottom: 32px;
-        }
-
+        /* --- CARDS --- */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -276,6 +268,26 @@
             transform: translateY(-5px);
         }
 
+        /* --- CARROSSEL DE PARCEIROS --- */
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 32px;
+            transition: transform 0.4s ease-in-out;
+        }
+
         .partner-card {
             background-color: var(--bg-surface);
             padding: 28px 24px;
@@ -287,11 +299,48 @@
             justify-content: space-between;
             height: 100%;
             position: relative;
+            flex: 0 0 calc((100% - 64px) / 3);
+            min-width: calc((100% - 64px) / 3);
         }
 
         .partner-card:hover {
             border-color: #333;
             transform: translateY(-5px);
+        }
+
+        /* Botões de Navegação do Carrossel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid var(--gold-main);
+            color: var(--gold-main);
+            font-size: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-btn:hover {
+            background: var(--gold-main);
+            color: #000;
+            box-shadow: 0 0 15px rgba(224, 170, 62, 0.4);
+        }
+
+        .carousel-btn.prev {
+            left: -24px;
+        }
+
+        .carousel-btn.next {
+            right: -24px;
         }
 
         /* Imagens dos cards de Soluções (Quadrado perfeito 1:1) */
@@ -436,7 +485,25 @@
         }
 
         @media (max-width: 1024px) {
-            .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .partner-card {
+                flex: 0 0 calc((100% - 32px) / 2);
+                min-width: calc((100% - 32px) / 2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .partner-card {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            .carousel-btn.prev { left: -10px; }
+            .carousel-btn.next { right: -10px; }
         }
 
         @media (max-width: 900px) {
@@ -569,193 +636,200 @@
     <section id="parcerias" class="section container">
         <h2 class="section-title">Parceiros, Links e Cupons</h2>
         
-        <div class="grid-3">
+        <!-- CARROSSEL DE PARCEIROS -->
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
             
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="joompulse.png" alt="JoomPulse">
-                    </div>
-                    <h3>JoomPulse</h3>
-                    <p>Inteligência de mercado e automação com IA. Teste grátis, assine com 30% de desconto ou acesse o bônus de 50 Prompts.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom & Bônus:</span>
-                        <div class="cupom-code">30% OFF (FILHODOREI30)</div>
-                    </div>
-                    <a href="https://joompulse.com/fast-track?utm_source=ref&utm_medium=filhodorei&promocode=FILHODOREI30" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
-                </div>
-            </div>
-
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="olisterp.jpg" alt="Olist">
-                    </div>
-                    <h3>Olist</h3>
-                    <p>Ganhe agilidade na operação, reduza erros e seja mais eficiente com Olist. Torne sua operação mais simples e centralizada.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
-                        <div class="cupom-code" style="font-size: 0.75rem; line-height: 1.3;">
-                            Mensal: 30 dias grátis + 3 meses 50% OFF<br>
-                            Anual: 30 dias grátis + 13% OFF no 1º ano
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- 1. JoomPulse -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="joompulse.png" alt="JoomPulse">
+                            </div>
+                            <h3>JoomPulse</h3>
+                            <p>Inteligência de mercado e automação com IA. Teste grátis, assine com 30% de desconto ou acesse o bônus de 50 Prompts.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom & Bônus:</span>
+                                <div class="cupom-code">30% OFF (FILHODOREI30)</div>
+                            </div>
+                            <a href="https://joompulse.com/fast-track?utm_source=ref&utm_medium=filhodorei&promocode=FILHODOREI30" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
                         </div>
                     </div>
-                    <a href="https://olist.com/lp/sistema-de-gestao/?parceiro=FILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">CADASTRAR COM DESCONTO</a>
+
+                    <!-- 2. Olist -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="olisterp.jpg" alt="Olist">
+                            </div>
+                            <h3>Olist</h3>
+                            <p>Ganhe agilidade na operação, reduza erros e seja mais eficiente com Olist. Torne sua operação mais simples e centralizada.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                                <div class="cupom-code" style="font-size: 0.75rem; line-height: 1.3;">
+                                    Mensal: 30 dias grátis + 3 meses 50% OFF<br>
+                                    Anual: 30 dias grátis + 13% OFF no 1º ano
+                                </div>
+                            </div>
+                            <a href="https://olist.com/lp/sistema-de-gestao/?parceiro=FILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">CADASTRAR COM DESCONTO</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. JoomPro -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="joompro.png" alt="JoomPro">
+                            </div>
+                            <h3>JoomPro</h3>
+                            <p>Plataforma B2B para sourcing direto da China com segurança fiscal e suporte profissional para escalar sua operação.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom & Desconto:</span>
+                                <div class="cupom-code">10% OFF na 1ª Compra<br>(Cupom: FILHODOREI10)</div>
+                            </div>
+                            <a href="https://joom.pro/pt-br/?utm_source=Arnaldo_Carriel&utm_medium=Partner_Program&utm_campaign=Refferal_Campaign" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Onicanal -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="onicanal.jpg" alt="Onicanal - Profissão Ecommerce">
+                            </div>
+                            <h3>Onicanal - Profissão Ecommerce</h3>
+                            <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--gold-main); text-transform: uppercase; display: block;">Formação:</span>
+                                <div class="cupom-code">Acesso Completo</div>
+                            </div>
+                            <a href="https://pay.hotmart.com/W51253421F?off=4sl1gynr&bid=1789939194870" class="btn" target="_blank">CONHECER O CURSO</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Time Envios -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="logo_time.png" alt="Time Envios">
+                            </div>
+                            <h3>Time Envios</h3>
+                            <p>Especializada em entregas no mesmo dia em toda Capital e Grande-SP. Atendimento 100% Envio Flex e Entrega Rápida Shopee com agilidade.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                                <div class="cupom-code">10% OFF em Todos os Envios<br>(Cupom: FILHODOREI)</div>
+                            </div>
+                            <a href="https://wa.me/5511914695500?text=Quero+contratar+seu+serviço+com+o+cupom:+OFILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR ENVIO</a>
+                        </div>
+                    </div>
+
+                    <!-- 6. JR Express -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="jrexpress.jpeg" alt="JR Express">
+                            </div>
+                            <h3>JR Express</h3>
+                            <p>Compromisso e pontualidade em cada entrega. Soluções ágeis de transporte para atender a capital e o interior com total segurança.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Atendimento Exclusivo:</span>
+                                <div class="cupom-code">Cotação via WhatsApp</div>
+                            </div>
+                            <a href="https://wa.me/5511946180593?text=Ol%C3%A1%2C+vim+pelo+FILHO+DO+REI+e+quero+fazer+uma+cota%C3%A7%C3%A3o.+&utm_source=chatgpt.com" class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR COTAÇÃO</a>
+                        </div>
+                    </div>
+
+                    <!-- 7. eBLUE Solutions -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="eblue.jpeg" alt="eBLUE Solutions">
+                            </div>
+                            <h3>eBLUE Solutions</h3>
+                            <p>Registro de marcas, assistência jurídica e tributária. Proteja seus ativos e blinde o seu e-commerce com soluções inteligentes.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                                <div class="cupom-code">Atendimento Personalizado e Descontos<br>(Cupom: FILHODOREI20)</div>
+                            </div>
+                            <a href="https://wa.me/553194085039?text=Ol%C3%A1%2C%20vim+atrav%C3%A9s+de+indica%C3%A7%C3%A3o+do+Arnaldo+Filho+do+Rei" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR BENEFÍCIO</a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Letzee -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="letzee.png" alt="Letzee">
+                            </div>
+                            <h3>Letzee</h3>
+                            <p>Otimize sua operação com benefícios exclusivos. Teste grátis por 15 dias e garanta até 30% de desconto por 1 ano.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                                <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
+                            </div>
+                            <a href="https://app.letzee.ai/register?cupom=OFILHODOREI" class="btn" target="_blank">GARANTIR BENEFÍCIO</a>
+                        </div>
+                    </div>
+
+                    <!-- 9. Linsgeek ERP -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="linsgeek.png" alt="Linsgeek ERP">
+                            </div>
+                            <h3>Linsgeek ERP</h3>
+                            <p>Gestão e automação completa para o seu negócio digital. Aproveite 30 dias grátis para estruturar e controlar sua operação.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
+                                <div class="cupom-code">30 Dias Grátis</div>
+                            </div>
+                            <a href="https://app.linsgeek.com/zh-CN/register?code=X68WYZ2R" class="btn" target="_blank">CADASTRAR 30 DIAS GRÁTIS</a>
+                        </div>
+                    </div>
+
+                    <!-- 10. Jodda I.A. -->
+                    <div class="partner-card">
+                        <div>
+                            <div class="card-img-box">
+                                <img src="JODDA.png" alt="Jodda I.A.">
+                            </div>
+                            <h3>Jodda I.A.</h3>
+                            <p>Inteligência de lucro e gestão multicanal para sellers. Otimize sua operação, calcule margens reais e automatize o atendimento com IA.</p>
+                        </div>
+                        <div>
+                            <div class="cupom-box">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
+                                <div class="cupom-code">30% OFF por 3 meses</div>
+                            </div>
+                            <a href="https://joddaia.com.br/?ref=FILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="joompro.png" alt="JoomPro">
-                    </div>
-                    <h3>JoomPro</h3>
-                    <p>Plataforma B2B para sourcing direto da China com segurança fiscal e suporte profissional para escalar sua operação.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Cupom & Desconto:</span>
-                        <div class="cupom-code">10% OFF na 1ª Compra<br>(Cupom: FILHODOREI10)</div>
-                    </div>
-                    <a href="https://joom.pro/pt-br/?utm_source=Arnaldo_Carriel&utm_medium=Partner_Program&utm_campaign=Refferal_Campaign" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="grid-3">
-            
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="onicanal.jpg" alt="Onicanal - Profissão Ecommerce">
-                    </div>
-                    <h3>Onicanal - Profissão Ecommerce</h3>
-                    <p>Capacitação e formação completa para você dominar o mercado de e-commerce com estratégias validadas no campo de batalha.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--gold-main); text-transform: uppercase; display: block;">Formação:</span>
-                        <div class="cupom-code">Acesso Completo</div>
-                    </div>
-                    <a href="https://pay.hotmart.com/W51253421F?off=4sl1gynr&bid=1789939194870" class="btn" target="_blank">CONHECER O CURSO</a>
-                </div>
-            </div>
-
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="logo_time.png" alt="Time Envios">
-                    </div>
-                    <h3>Time Envios</h3>
-                    <p>Especializada em entregas no mesmo dia em toda Capital e Grande-SP. Atendimento 100% Envio Flex e Entrega Rápida Shopee com agilidade.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
-                        <div class="cupom-code">10% OFF em Todos os Envios<br>(Cupom: FILHODOREI)</div>
-                    </div>
-                    <a href="https://wa.me/5511914695500?text=Quero+contratar+seu+serviço+com+o+cupom:+OFILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR ENVIO</a>
-                </div>
-            </div>
-
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="jrexpress.jpeg" alt="JR Express">
-                    </div>
-                    <h3>JR Express</h3>
-                    <p>Compromisso e pontualidade em cada entrega. Soluções ágeis de transporte para atender a capital e o interior com total segurança.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Atendimento Exclusivo:</span>
-                        <div class="cupom-code">Cotação via WhatsApp</div>
-                    </div>
-                    <a href="https://wa.me/5511946180593?text=Ol%C3%A1%2C+vim+pelo+FILHO+DO+REI+e+quero+fazer+uma+cota%C3%A7%C3%A3o.+&utm_source=chatgpt.com" class="btn" style="margin-top: 12px;" target="_blank">SOLICITAR COTAÇÃO</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="grid-3">
-            
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="eblue.jpeg" alt="eBLUE Solutions">
-                    </div>
-                    <h3>eBLUE Solutions</h3>
-                    <p>Registro de marcas, assistência jurídica e tributária. Proteja seus ativos e blinde o seu e-commerce com soluções inteligentes.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
-                        <div class="cupom-code">Atendimento Personalizado e Descontos<br>(Cupom: FILHODOREI20)</div>
-                    </div>
-                    <a href="https://wa.me/553194085039?text=Ol%C3%A1%2C%20vim+atrav%C3%A9s+de+indica%C3%A7%C3%A3o+do+Arnaldo+Filho+do+Rei" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR BENEFÍCIO</a>
-                </div>
-            </div>
-
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="letzee.png" alt="Letzee">
-                    </div>
-                    <h3>Letzee</h3>
-                    <p>Otimize sua operação com benefícios exclusivos. Teste grátis por 15 dias e garanta até 30% de desconto por 1 ano.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
-                        <div class="cupom-code">15 Dias Grátis + Até 30% Off</div>
-                    </div>
-                    <a href="https://app.letzee.ai/register?cupom=OFILHODOREI" class="btn" target="_blank">GARANTIR BENEFÍCIO</a>
-                </div>
-            </div>
-
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="linsgeek.png" alt="Linsgeek ERP">
-                    </div>
-                    <h3>Linsgeek ERP</h3>
-                    <p>Gestão e automação completa para o seu negócio digital. Aproveite 30 dias grátis para estruturar e controlar sua operação.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Vantagem:</span>
-                        <div class="cupom-code">30 Dias Grátis</div>
-                    </div>
-                    <a href="https://app.linsgeek.com/zh-CN/register?code=X68WYZ2R" class="btn" target="_blank">CADASTRAR 30 DIAS GRÁTIS</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="grid-3">
-            
-            <div class="partner-card">
-                <div>
-                    <div class="card-img-box">
-                        <img src="JODDA.png" alt="Jodda I.A.">
-                    </div>
-                    <h3>Jodda I.A.</h3>
-                    <p>Inteligência de lucro e gestão multicanal para sellers. Otimize sua operação, calcule margens reais e automatize o atendimento com IA.</p>
-                </div>
-                <div>
-                    <div class="cupom-box">
-                        <span style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; display: block;">Benefício Exclusivo:</span>
-                        <div class="cupom-code">30% OFF por 3 meses</div>
-                    </div>
-                    <a href="https://joddaia.com.br/?ref=FILHODOREI" class="btn" style="margin-top: 12px;" target="_blank">GARANTIR DESCONTO</a>
-                </div>
-            </div>
-
+            <button class="carousel-btn next" id="nextBtn" aria-label="Próximo">&#10095;</button>
         </div>
 
         <div class="card" style="text-align: center; padding: 48px 40px; border-color: var(--gold-dark); max-width: 100%; margin-top: 32px;">
@@ -807,8 +881,66 @@
         });
 
         function fecharMenu() {
+            navLinks.classList.remove('action');
             navLinks.classList.remove('active');
         }
+
+        // Lógica do Carrossel de Parceiros
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const cards = document.querySelectorAll('.partner-card');
+
+        let currentIndex = 0;
+
+        function getCardsPerView() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        function updateCarousel() {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = Math.max(0, cards.length - cardsPerView);
+            
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = 32; // Gap definido no CSS
+            const moveAmount = currentIndex * (cardWidth + gap);
+            
+            track.style.transform = `translateX(-${moveAmount}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = cards.length - cardsPerView;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarousel();
+            } else {
+                // Loop para o início se chegar ao fim
+                currentIndex = 0;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = cards.length - cardsPerView;
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            } else {
+                // Vai para o último slide se estiver no começo
+                currentIndex = maxIndex;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', updateCarousel);
     </script>
 </body>
 </html>
